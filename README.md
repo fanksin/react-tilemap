@@ -5,9 +5,7 @@ Write applications with ES6 (to ES5) JavaScript transpilation and Sass support.
 * Node.js & npm
 
 ## Getting Started
-* Run `npm install`
-
-Write your styles in `src/scss/` using Sass (.scss) and your ES6 JavaScript in `src/js/`. To transpile your code to CSS and ES5 JavaScript, see the **Commands** section below. 
+* `npm install`
 
 ### Commands
 `npm start` 
