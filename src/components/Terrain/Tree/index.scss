@@ -1,0 +1,25 @@
+.tree {
+  position: absolute;
+  cursor: pointer;
+
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  &.variant-1 {
+    top: -65%;
+    right: -20%;
+  }
+
+  &.variant-2 {
+    top: -50%;
+    right: -20%;
+  }
+
+  img {
+    position: relative;
+    width: 40px;
+    height: auto;
+  }
+}

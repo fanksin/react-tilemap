@@ -1,0 +1,24 @@
+
+@mixin media-breakpoint-up($breakpoint) {
+  @media only screen and (min-width: #{ map-get($breakpoints, $breakpoint) }px) {
+    @content;
+  }
+}
+
+@mixin media-breakpoint-down($breakpoint) {
+  @media only screen and (min-width: #{ map-get($breakpoints, $breakpoint) - 1 }px) {
+    @content;
+  }
+}
+
+@mixin box-shadow-sm($color) {
+  box-shadow: 0 5px 20px -10px rgba($color,.5);
+}
+
+@mixin box-shadow($color) {
+  box-shadow: 0 10px 40px -20px rgba($color,.5);
+}
+
+@mixin box-shadow-lg($color) {
+  box-shadow: 0 20px 60px -30px rgba($color,.5);
+}

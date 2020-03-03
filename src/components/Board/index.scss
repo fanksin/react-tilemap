@@ -1,0 +1,64 @@
+$body: #fafafa;
+$wintergreen: #40A5A4;
+
+.debug-menu {
+  background: rgba(0,0,0,.4);
+  position: absolute;
+  top: 20px;
+  left: 20px;
+
+  h2 {
+    margin: 0;
+    background: rgba(0,0,0,.4);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    padding: 4px 8px;
+  }
+  button {
+    width: 100%;
+  }
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: $body;
+}
+
+.board {
+  opacity: .5;
+  max-width: 900px;
+  transform: rotate(-15deg) skewX(30deg);
+  background: $wintergreen;
+  box-shadow: -1px 1px darken($wintergreen,35%),
+    -2px 2px darken($wintergreen,35%),
+    -3px 3px darken($wintergreen,35%),
+    -4px 4px darken($wintergreen,35%),
+    -5px 5px darken($wintergreen,35%),
+    -6px 6px darken($wintergreen,35%),
+    -7px 7px darken($wintergreen,35%),
+    -8px 8px darken($wintergreen,35%),
+    -9px 9px darken($wintergreen,35%),
+    -10px 10px darken($wintergreen,35%),
+    -11px 11px darken($wintergreen,35%),
+    -12px 12px darken($wintergreen,35%),
+    -20px 20px 4px rgba(0,0,0,.15),
+    -21px 21px 20px rgba(0,0,0,.2),
+    -22px 22px 40px rgba(0,0,0,.4);
+
+  .tiles {
+    display: flex;
+    flex-direction: row;
+  }
+}
