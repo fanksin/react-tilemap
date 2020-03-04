@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import getRandomInt from '../../../helpers/getRandomInt';
-import variantOne from './img/0.png';
-import variantTwo from './img/1.png';
+import variants from './variants';
 import './index.scss';
 
 export default class Tree extends Component {
@@ -11,32 +10,7 @@ export default class Tree extends Component {
     this.ref = React.createRef();
 
     // Tree variants object data
-    this.variants = [
-      {
-        id: 1,
-        name: "Birch",
-        img: {
-          src: variantOne,
-          alt: 'A birch tree.',
-        },
-        growth: {
-          rate: 1000, // ms
-          regrows: true
-        }
-      },
-      {
-        id: 2,
-        name: 'Oak',
-        img: {
-          src: variantTwo,
-          alt: 'An oak tree.',
-        },
-        growth: {
-          rate: null,
-          regrows: false
-        }
-      }
-    ];
+    this.variants = variants;
 
     // Default state
     this.state = { 
@@ -58,7 +32,6 @@ export default class Tree extends Component {
   disable() {
     const element = this.ref.current;
     element.classList.add('disabled');
-    console.log(element.classList);
     this.setState({grown:false});
   }
 
@@ -69,6 +42,7 @@ export default class Tree extends Component {
   }
 
   chop() {
+    this.incrementPoints();
     if(!this.state.growing) {
       this.disable();
       this.regrow();
@@ -81,6 +55,10 @@ export default class Tree extends Component {
       this.setState({growing:true});
       setTimeout(() => this.enable(), variant.growth.rate );
     }
+  }
+
+  incrementPoints() {
+    
   }
   
   render() {

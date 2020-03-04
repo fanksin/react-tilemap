@@ -8,17 +8,22 @@ import Board from './components/Board';
 class App extends Component {
   constructor() {
     super();
-    this.width = 12;
-    this.height = 8;
   }
 
   componentDidMount() {
     document.title = config.title;
   }
 
+  incrementPoints() {
+    // this.setState({
+    //   points: this.state.points + 1
+    // });
+    // console.log(this.state.points);
+  }
+
   render() {
     return(
-      <Board height={ this.height } width={ this.width } />
+      <Board height={ 8 } width={ 12 } />
     );
   }
 }
