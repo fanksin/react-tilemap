@@ -8,8 +8,6 @@ class Board extends Component {
   constructor(props) {
     super(props);
     this.props = props;
-    this.width = this.props.width;
-    this.height = this.props.height;
     this.ref = React.createRef();
     this.reset = this.reset.bind(this);
   }

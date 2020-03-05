@@ -3,13 +3,13 @@ import reducer from './reducers';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import App  from './components/App';
+import Board  from './components/Board';
 
 const store = createStore(reducer);
 
 ReactDOM.render(
   <Provider store={store}>
-    <App/>
+    <Board />
   </Provider>, 
   document.querySelector('#root')
 );

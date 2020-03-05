@@ -1,5 +1,4 @@
-# Webpack Project Template
-Write applications with ES6 (to ES5) JavaScript transpilation and Sass support.
+# Forest Simulator
 
 ## Requirements
 * Node.js & npm

@@ -10,7 +10,7 @@ export default [
       alt: 'A birch tree.',
     },
     growth: {
-      rate: 1000, // ms
+      rate: 325, // ms
       regrows: true
     }
   },
@@ -22,7 +22,7 @@ export default [
       alt: 'An oak tree.',
     },
     growth: {
-      rate: 3000,
+      rate: 700, //ms
       regrows: true
     }
   }

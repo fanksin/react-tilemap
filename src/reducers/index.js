@@ -28,7 +28,6 @@ const reducer = (state = initialState, action) => {
     state = {...state, ...updatedState};
   }
   
-  console.log(state);
   return state;
 };
 
