@@ -1,35 +1,32 @@
 import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
 import Tile from '../Tile';
+import Points from '../Points';
 import './index.scss';
 
-export default class Board extends Component {
+class Board extends Component {
   constructor(props) {
     super(props);
     this.props = props;
     this.width = this.props.width;
     this.height = this.props.height;
     this.ref = React.createRef();
-    this.state = {
-      tileMap: this.initializeTileMap(this.height, this.width)
-    };
+    this.reset = this.reset.bind(this);
   }
 
+  /**
+   * Set the document node for the Board to 100% opacity when loaded
+   */
   componentDidMount() {
     const element = this.ref.current;
     element.style.opacity = 1;
   }
 
-  initializeTileMap(height = 10, width = 10) {
-    let map = new Array(height);
-    for(let i = 0; i < map.length; i++) {
-      map[i] = new Array(width).fill(0);
-    }
-
-    return map;
-  }
-
+  /**
+   * Loop through the tile map two dimensional array and render one Tile component per entry
+   */
   generateTileMarkup() {
-    const tileMap = this.state.tileMap;
+    const tileMap = this.props.tileMap;
     const tileMarkup = tileMap.map((row, rowIndex) => {
       return (
         <div key={rowIndex} className={'tiles'}>
@@ -50,10 +47,12 @@ export default class Board extends Component {
     return tileMarkup;
   }
 
-  refreshBoard() {
-    this.setState({
-      tileMap: this.initializeTileMap(this.height, this.width)
-    });
+  /**
+   * Reset the entire board & points
+   */
+  reset() {
+    this.props.dispatch({type: 'RESET_POINTS'});
+    this.props.dispatch({type: 'REFRESH_BOARD'});
   }
 
   render() {
@@ -64,9 +63,22 @@ export default class Board extends Component {
         </div>
         <div className='debug-menu'>
           <h2>Debug Menu</h2>
-          <button onClick={ this.refreshBoard.bind(this) }>Reset Board</button>
+          <div><strong>Points</strong>: <Points /></div>
+          <button onClick={ this.reset }>Reset</button>
         </div>
       </Fragment>
     );
   }
 }
+
+/**
+ * Redux state to props
+ * @param {Object} state 
+ */
+const mapStateToProps = (state) => {
+  return {
+    tileMap: state.tileMap,
+  };
+};
+
+export default connect(mapStateToProps)(Board);

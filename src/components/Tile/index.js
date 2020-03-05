@@ -14,12 +14,19 @@ export default class Tile extends Component {
     };
   }
 
+  /**
+   * Get a random terrain type from registered terrain components
+   */
   getRandomTerrain() {
     const keys = Object.keys(TERRAIN_COMPONENTS);
     const component = keys[keys.length * Math.random() << 0];
     return component;
   }
 
+  /**
+   * Create markup for the tile, wrapped in a div with a z-index value for z-axis positioning and terrain & variant class
+   * @param {JSX Object} children 
+   */
   getTileMarkup(children = null) {
     return (
       <div className={this.className} style={{zIndex: this.props.zIndex}}>

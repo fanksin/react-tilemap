@@ -14,7 +14,7 @@ $wintergreen: #40A5A4;
   }
 
   .interactive {
-    &:not(.disabled) {
+    &:not(.disabled):not(.not-interactive) {
       > * {
         transition: 0.08s ease filter;
 

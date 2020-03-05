@@ -1,54 +1,64 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import getRandomInt from '../../../helpers/getRandomInt';
 import variants from './variants';
 import './index.scss';
 
-export default class Tree extends Component {
+class Tree extends Component {
   constructor(props) {
     super(props);
     this.props = props;
-    this.ref = React.createRef();
-
-    // Tree variants object data
-    this.variants = variants;
-
-    // Default state
     this.state = { 
       grown: true,
       growing: false,
       variant: this.getRandomVariant()
     };
-
-    // Bindings
-    this.chop = this.chop.bind(this);
+    this.ref = React.createRef(); // Document node reference
+    this.chop = this.chop.bind(this); // Bindings
   }
 
+  /**
+   * Get a random tree variant
+   */
   getRandomVariant() {
-    const variantCount = this.variants.length - 1;
+    const variantCount = variants.length - 1;
     const randomVariantIndex = getRandomInt(variantCount);
-    return this.variants[randomVariantIndex]; 
+    return variants[randomVariantIndex]; 
   }
 
+  /**
+   * Disable the tree and set it's growth state
+   */
   disable() {
     const element = this.ref.current;
     element.classList.add('disabled');
     this.setState({grown:false});
   }
 
+  /**
+   * Enable the tree and reset it's growth & growing state
+   */
   enable() {
     const element = this.ref.current;
     element.classList.remove('disabled');
     this.setState({grown:true,growing:false});
   }
 
+  /**
+   * Chop down the tree! 
+   * Add a point to the score, disable it and let it regrow as nature intended :)
+   */
   chop() {
-    this.incrementPoints();
     if(!this.state.growing) {
+      this.incrementPoints();
       this.disable();
       this.regrow();
     }
   }
 
+  /**
+   * If it can regrow, start a timeout counter using it's growth rate
+   */
   regrow() {
     const variant = this.state.variant;
     if(variant.growth.regrows) {
@@ -56,9 +66,9 @@ export default class Tree extends Component {
       setTimeout(() => this.enable(), variant.growth.rate );
     }
   }
-
+  
   incrementPoints() {
-    
+    this.props.dispatch({type: 'INCREMENT_POINTS'});
   }
   
   render() {
@@ -70,3 +80,5 @@ export default class Tree extends Component {
     );
   }
 }
+
+export default connect()(Tree);

@@ -1,3 +1,6 @@
+/**
+ * Terrain for each tile component, dynamically rendered based on registered terrain components
+ */
 import React, { Component } from 'react';
 import Tree from './Tree';
 import Grass from './Grass';
@@ -6,7 +9,6 @@ const TERRAIN_COMPONENTS = {
   tree: Tree,
   grass: Grass
 };
-
 class Terrain extends Component {
   constructor(props) {
     super(props);

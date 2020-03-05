@@ -45,7 +45,8 @@ module.exports = {
       meta: {
         viewport: 'width=device-width'
       },
-      title: 'Loading...'
+      title: 'Loading...',
+      template: './src/templates/index.html'
     }),
     new ManifestPlugin()
   ],
