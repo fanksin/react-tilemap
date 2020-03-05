@@ -45,7 +45,7 @@ module.exports = {
       meta: {
         viewport: 'width=device-width'
       },
-      title: 'Loading...',
+      title: 'Forest Simulator',
       template: './src/templates/index.html'
     }),
     new ManifestPlugin()

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { INCREMENT_POINTS } from '../../../reducers/actions';
 import getRandomInt from '../../../helpers/getRandomInt';
 import variants from './variants';
 import './index.scss';
@@ -68,7 +69,7 @@ class Tree extends Component {
   }
   
   incrementPoints() {
-    this.props.dispatch({type: 'INCREMENT_POINTS'});
+    this.props.dispatch({type: INCREMENT_POINTS});
   }
   
   render() {

@@ -8,16 +8,7 @@ class Board extends Component {
   constructor(props) {
     super(props);
     this.props = props;
-    this.ref = React.createRef();
     this.reset = this.reset.bind(this);
-  }
-
-  /**
-   * Set the document node for the Board to 100% opacity when loaded
-   */
-  componentDidMount() {
-    const element = this.ref.current;
-    element.style.opacity = 1;
   }
 
   /**
