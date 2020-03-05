@@ -69,7 +69,7 @@ class Tree extends Component {
   }
   
   incrementPoints() {
-    this.props.dispatch({type: INCREMENT_POINTS});
+    this.props.dispatch(INCREMENT_POINTS);
   }
   
   render() {
