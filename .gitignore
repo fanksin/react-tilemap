@@ -1,2 +1,4 @@
 node_modules/
 _OLD
+
+dist/*.map

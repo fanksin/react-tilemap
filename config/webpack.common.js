@@ -50,17 +50,13 @@ module.exports = {
     }),
     new ManifestPlugin()
   ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+  },
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-  },
-  devServer: {
-    // TODO: Proxy docker instance
-    // proxy: {
-    //   '/': 'http://localhost'
-    // }
-    contentBase: './dist',
-    port: '3000'
-  },
-  devtool: 'inline-source-map'
+    filename: '[name].bundle.js',
+    path: path.resolve(__dirname, '../dist'),
+  }
 };

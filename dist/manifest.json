@@ -1,5 +1,6 @@
 {
-  "main.js": "bundle.js",
+  "main.js": "main.bundle.js",
+  "vendors~main.js": "vendors~main.bundle.js",
   "0167424d8060617b514ff2585cc04284.png": "0167424d8060617b514ff2585cc04284.png",
   "0c2636f9b645c2b304ddbe876f79b564.png": "0c2636f9b645c2b304ddbe876f79b564.png",
   "2db3dec2ab0fcd63e9f87b395f222c3c.png": "2db3dec2ab0fcd63e9f87b395f222c3c.png",
