@@ -64,7 +64,7 @@ body {
 
       &:first-child {
         margin-right: 5px;
-        flex: 1 1 10%;
+        flex: 0 1 30%;
       }
     }
 
@@ -91,6 +91,7 @@ body {
   }
 
   .points {
+    padding: 0 4px;
     font-weight: bold;
     color: green;
   }

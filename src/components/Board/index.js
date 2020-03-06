@@ -67,7 +67,7 @@ class Board extends Component {
         </div>
         <div className='debug-menu'>
           <h2>🌲 Forest Simulator</h2>
-          <div><strong>Trees Chopped:</strong> <Points /></div>
+          <div><strong>Points:</strong> <Points /></div>
           <div>
             <label htmlFor='rows'><strong>Rows:</strong></label>
             <input id='rows' type='number' min='1' max='15' defaultValue={this.props.rows} onChange={this.updateBoardSize} />
