@@ -19,6 +19,7 @@ body {
   max-width: 900px;
   transform: rotate(-15deg) skewX(30deg);
   background: $wintergreen;
+  border: 1px solid $wintergreen;
   box-shadow: -1px 1px darken($wintergreen,35%),
     -2px 2px darken($wintergreen,35%),
     -3px 3px darken($wintergreen,35%),

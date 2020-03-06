@@ -9,10 +9,21 @@ export default [
       src: variantOne,
       alt: 'A birch tree.',
     },
+    // images: [
+    //   {
+    //     tree: './img/0.png',
+    //     stump: '',
+    //   },
+    //   {
+    //     tree: './img/0.png',
+    //     stump: '',
+    //   }
+    // ],
     growth: {
       rate: 325, // ms
       regrows: true
-    }
+    },
+    points: 1
   },
   {
     id: 2,
@@ -24,6 +35,7 @@ export default [
     growth: {
       rate: 700, //ms
       regrows: true
-    }
+    },
+    points: 2
   }
 ];

@@ -2,9 +2,9 @@
  * Increment the points value by 1
  * @param {Object} state The application's state
  */
-export const incrementPoints = (state) => {
+export const incrementPoints = (state, action) => {
   return {
-    points: state.points + 1
+    points: state.points + action.pointsToIncrement
   };
 };
 
@@ -12,9 +12,9 @@ export const incrementPoints = (state) => {
  * Decrement the points value by 1
  * @param {Object} state The application's state
  */
-export const decrementPoints = (state) => {
+export const decrementPoints = (state, action) => {
   return {
-    points: state.points - 1
+    points: state.points - action.pointsToDecrement
   };
 };
 

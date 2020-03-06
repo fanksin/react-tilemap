@@ -48,10 +48,11 @@ class Tree extends Component {
   /**
    * Chop down the tree! 
    * Add a point to the score, disable it and let it regrow as nature intended :)
+   * @param {Number} pointsValue the number of points the tree is worth
    */
-  chop() {
+  chop(pointsValue) {
     if(!this.state.growing) {
-      this.incrementPoints();
+      this.incrementPoints(pointsValue);
       this.disable();
       this.regrow();
     }
@@ -68,14 +69,18 @@ class Tree extends Component {
     }
   }
   
-  incrementPoints() {
-    this.props.dispatch(INCREMENT_POINTS);
+  /**
+   * Incremement points by N amount
+   * @param {Number} N number of points to increment
+   */
+  incrementPoints(N) {
+    this.props.dispatch({...INCREMENT_POINTS, pointsToIncrement: N });
   }
   
   render() {
     const variant = this.state.variant;
     return (
-      <div className={`tree variant-${variant.id} interactive`} onClick={this.chop} ref={this.ref}>
+      <div className={`tree variant-${variant.id} interactive`} onClick={() => this.chop(variant.points)} ref={this.ref}>
         <img src={variant.img.src} alt={variant.img.alt} />
       </div>
     );
