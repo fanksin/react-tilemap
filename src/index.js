@@ -5,7 +5,10 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import Board  from './components/Board';
 
-const store = createStore(reducer);
+const store = createStore(
+  reducer, /* Initial state */
+  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
 
 ReactDOM.render(
   <Provider store={store}>

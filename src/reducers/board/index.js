@@ -1,7 +1,20 @@
 import initialize2dArray from '../../helpers/initialize2dArray';
 
-export const refreshBoard = () => {
+export const resetBoard = (state) => {
   return {
-    tileMap: initialize2dArray(6, 8)
+    board: {
+      ...state.board,
+      tileMap: initialize2dArray(state.board.rows, state.board.columns)
+    },
+  };
+};
+
+export const updateBoardSize = (state, action) => {
+  return {
+    board: {
+      rows: action.rows,
+      columns: action.columns,
+      tileMap: initialize2dArray(action.rows, action.columns),
+    }
   };
 };

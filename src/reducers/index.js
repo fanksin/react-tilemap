@@ -2,8 +2,12 @@ import initialize2dArray from '../helpers/initialize2dArray';
 import {actions} from './actions';
 
 const initialState = {
-  tileMap: initialize2dArray(6, 8),
-  points: 0
+  board: {
+    tileMap: initialize2dArray(6, 8),
+    rows: 6,
+    columns: 8
+  },
+  points: 0,
 };
 
 /**
@@ -14,7 +18,7 @@ const initialState = {
 export const reducer = (state = initialState, action) => {
   if(Object.prototype.hasOwnProperty.call(actions, action.type)) {
     console.log(`Action => ${action.type}`); // TODO: remove
-    const updatedState = actions[action.type](state);
+    const updatedState = actions[action.type](state, action);
     state = {...state, ...updatedState};
   }
   
