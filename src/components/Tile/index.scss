@@ -15,7 +15,7 @@ $wintergreen: #40A5A4;
   .interactive {
     &:not(.disabled):not(.not-interactive) {
       > * {
-        transition: 0.08s ease filter;
+        transition: 0.05s ease filter;
 
         &:hover {
           filter: brightness(120%);

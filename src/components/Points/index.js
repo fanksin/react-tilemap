@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Points extends Component {
@@ -8,7 +8,7 @@ class Points extends Component {
   
   render() {
     return(
-      this.props.points
+      <span className='points'>{this.props.points}</span>
     );
   }
 }

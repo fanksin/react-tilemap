@@ -1,7 +1,7 @@
 .tree {
   position: absolute;
   cursor: pointer;
-  transition: 0.08s ease opacity;
+  transition: 0.05s ease opacity;
 
   &.disabled {
     opacity: 0.5;
