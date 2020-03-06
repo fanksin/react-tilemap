@@ -28,6 +28,16 @@ class Tree extends Component {
   }
 
   /**
+   * Return random image object from variant object's array of images
+   * @param {Object} variant Tree variant object
+   * @return {Object} Image object with sources and alt text
+   */
+  getRandomImageFromVariant(variant) {
+    const length = variant.images.length - 1;
+    return variant.images[getRandomInt(length)];
+  }
+
+  /**
    * Disable the tree and set it's growth state
    */
   disable() {
@@ -79,9 +89,15 @@ class Tree extends Component {
   
   render() {
     const variant = this.state.variant;
+    const image = this.getRandomImageFromVariant(variant);
+    const isDisabled = !this.state.grown;
+    const isStump = !this.state.grown && image.src.stump;
+    const src = isStump ? image.src.stump : image.src.tree;
+    const classes = `${isStump ? 'tree stump' : 'tree'} variant-${variant.id} interactive${isDisabled ? ' disabled' : ''}`;
+    console.log(classes);
     return (
-      <div className={`tree variant-${variant.id} interactive`} onClick={() => this.chop(variant.points)} ref={this.ref}>
-        <img src={variant.img.src} alt={variant.img.alt} />
+      <div className={classes} onClick={() => this.chop(variant.points)} ref={this.ref}>
+        <img src={src} alt={image.alt} />
       </div>
     );
   }
