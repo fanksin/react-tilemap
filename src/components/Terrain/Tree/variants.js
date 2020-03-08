@@ -1,6 +1,7 @@
 import variantOne from './img/tree_birch_NE.png';
-import variantOneStump from './img/treeStump_deep_NE.png';
+import variantOneStump from './img/tree_stump_birch_NE.png';
 import variantTwo from './img/tree_oak_NE.png';
+import variantTwoStump from './img/tree_stump_oak_NE.png';
 
 export default [
   {
@@ -10,7 +11,7 @@ export default [
       {
         src: {
           tree: variantOne,
-          // stump: variantOneStump,
+          stump: variantOneStump,
         },
         alt: 'A birch tree.'
       },
@@ -28,7 +29,7 @@ export default [
       {
         src: {
           tree: variantTwo,
-          stump: '',
+          stump: variantTwoStump,
         },
         alt: 'A birch tree.'
       },

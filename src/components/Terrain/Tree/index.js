@@ -14,6 +14,7 @@ class Tree extends Component {
       growing: false,
       variant: this.getRandomVariant()
     };
+    this.variantImage = this.getRandomImageFromVariant(this.state.variant);
     this.ref = React.createRef(); // Document node reference
     this.chop = this.chop.bind(this); // Bindings
   }
@@ -86,15 +87,26 @@ class Tree extends Component {
   incrementPoints(N) {
     this.props.dispatch({...INCREMENT_POINTS, pointsToIncrement: N });
   }
+
+  isDisabled() {
+    return !this.state.grown;
+  }
+
+  isStump() {
+    return this.isDisabled() && this.variantImage.src.stump;
+  }
+
+  componentDidMount() {
+    // Preload stump image to avoid pop-in
+    const image = new Image;
+    image.src = this.variantImage.src.stump;
+  }
   
   render() {
     const variant = this.state.variant;
-    const image = this.getRandomImageFromVariant(variant);
-    const isDisabled = !this.state.grown;
-    const isStump = !this.state.grown && image.src.stump;
-    const src = isStump ? image.src.stump : image.src.tree;
-    const classes = `${isStump ? 'tree stump' : 'tree'} variant-${variant.id} interactive${isDisabled ? ' disabled' : ''}`;
-    console.log(classes);
+    const image = this.variantImage;
+    const classes = `${this.isStump() ? 'tree stump' : 'tree'} variant-${variant.id} interactive${this.isDisabled() ? ' disabled' : ''}`;
+    const src = this.isStump() ? image.src.stump : image.src.tree;
     return (
       <div className={classes} onClick={() => this.chop(variant.points)} ref={this.ref}>
         <img src={src} alt={image.alt} />
