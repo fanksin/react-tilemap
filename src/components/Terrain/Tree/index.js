@@ -88,16 +88,26 @@ class Tree extends Component {
     this.props.dispatch({...INCREMENT_POINTS, pointsToIncrement: N });
   }
 
+  /**
+   * Is the tree disabled? 
+   * Or in other words, not grown
+   */
   isDisabled() {
     return !this.state.grown;
   }
 
+  /**
+   * Is the tree a stump?
+   * Or in other words, is the tree disabled and has a stump image
+   */
   isStump() {
     return this.isDisabled() && this.variantImage.src.stump;
   }
 
+  /**
+   * Preload the stump image after the tree is mounted to avoid image pop-in
+   */
   componentDidMount() {
-    // Preload stump image to avoid pop-in
     const image = new Image;
     image.src = this.variantImage.src.stump;
   }
