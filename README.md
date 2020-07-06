@@ -3,6 +3,8 @@ Simple clicker game build in React with a forest where you earn points by cuttin
 
 There are only two types of trees, each worth differents amount of points with different growth rates. However, the framework to integrate more tree variations and ground decoration exists to expand upon.
 
+![Image of Forest Simulator running in the browser](https://i.imgur.com/wmlVKEt.png)
+
 ## Requirements
 * Node.js & npm
 
