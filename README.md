@@ -1,4 +1,7 @@
 # Forest Simulator
+Simple clicker game, with a forest where you earn points by cutting down trees. Wait for them to grow back and earn more points! 🔁
+
+There are only two types of trees, each worth differents amount of points with different growth rates. However, the framework to integrate more tree variations and ground decoration exists to expand upon.
 
 ## Requirements
 * Node.js & npm
@@ -12,3 +15,6 @@
 
 `npm run build`
 * Builds `src/` files and outputs to `dist/` in production mode (compressed JS & CSS webpack bundle).
+
+### Sources
+Art from [Nature Kit by Kenny](https://opengameart.org/content/nature-kit)
