@@ -1,5 +1,5 @@
 # Forest Simulator
-Simple clicker game build in React with a forest where you earn points by cutting down trees. Wait for them to grow back and earn more points! 🔁
+Simple clicker game built in React with a forest where you earn points by cutting down trees. Wait for them to grow back and earn more points! 🔁
 
 There are only two types of trees, each worth differents amount of points with different growth rates. However, the framework to integrate more tree variations and ground decoration exists to expand upon.
 
